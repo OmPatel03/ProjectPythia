@@ -44,15 +44,6 @@ We employ a machine learning approach, specifically a Convolutional Neural Netwo
 
 ---
 
-## Getting Started
-
-To get started with our project, follow these steps:
-
-1. Clone this repository to your local machine.
-2. Install the required libraries and dependencies listed in the `requirements.txt` file.
-3. Download the DSCOVR spectral data and preprocess it according to the provided instructions.
-
----
 
 ## Usage
 
