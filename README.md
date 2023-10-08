@@ -58,6 +58,12 @@ We employ a machine learning approach, specifically a Convolutional Neural Netwo
 
 ---
 
+### Scientific Paper
+
+For a more detailed and comprehensive overview of our project, please refer to the scientific paper available in the "Project_Pythia.pdf" document.
+
+---
+
 ## Contributing
 
 We welcome contributions to this project. Feel free to open issues, submit pull requests, or provide feedback to help us improve our Kp index prediction solution.
