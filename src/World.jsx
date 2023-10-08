@@ -14,7 +14,7 @@ export default class World {
         this.renderer = renderer;
         this.tbControls = tbControls;
         this.stats = stats;
-        this.currentDay = 0;
+        this.step = 0;
         this.currentkP = 0;
 
         this.globe = null;
@@ -87,7 +87,7 @@ export default class World {
         this.simulation = new Simulation(this.globe);
         
         this.gui = new dat.GUI();
-        this.gui.add(this, 'currentDay', 0, 12000 - 1).step(1).listen();
+        this.gui.add(this, 'step', 0, 2837 - 1).step(1).listen();
     }
 
     animate() {
@@ -102,9 +102,9 @@ export default class World {
         this.tbControls.update();
 
         // update simulation
-        if (this.simulation.kP != {}) {  
+        if (this.simulation.kP != []) {  
             // console.log(this.simulation.kP[this.currentDay])
-            this.simulation.update(this.currentDay);
+            this.simulation.update(this.step);
         }
 
         

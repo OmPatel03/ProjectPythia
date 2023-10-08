@@ -15,6 +15,42 @@ code {
     monospace;
 }
 
+#actualKp {
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  background-color: rgba(0, 255, 0, 0.5); /* Green with 50% opacity */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: white;
+  transform: translateY(-50%);
+}
+
+#predictedKp {
+  position: fixed;
+  top: 55%;
+  right: 10px;
+  background-color: rgba(0, 255, 0, 0.5); /* Green with 50% opacity */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: white;
+  transform: translateY(-50%);
+}
+
+#date {
+  position: fixed;
+  top: 60%;
+  right: 10px;
+  background-color: rgba(0, 255, 0, 0.5); /* Green with 50% opacity */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: white;
+  transform: translateY(-50%);
+}
+
 canvas {
   display: block;
 }

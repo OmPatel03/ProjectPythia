@@ -27,7 +27,7 @@ export default class Globe {
 			lat: (Math.random() - 0.5) * 180,
 			lng: (Math.random() - 0.5) * 360,
 			maxR: kP * 20 + 3,
-			propagationSpeed: (kP - 0.5) * 20 + 1,
+			propagationSpeed: (Math.random() - 0.5) * 20 + 1,
 			repeatPeriod: kP * 2000 + 200
 		}));
 		
