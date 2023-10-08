@@ -30,7 +30,7 @@ function App() {
   return (
     <div> 
       <canvas id="display"></canvas>
-      <KpBar kpValue={0.5} />
+      {/* <KpBar kpValue={0.5} /> */}
       {/* <KpActual number={data} /> */}
 	  </div>
     // kp bar

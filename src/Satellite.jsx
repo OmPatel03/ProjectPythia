@@ -14,8 +14,8 @@ export default class Satellite {
                 this.mesh.scale.set(0.01, 0.01, 0.01)
                 this.mesh.position.set(80, 80, 80);
                 let material = new THREE.MeshLambertMaterial({color: 0x777777});
-                this.mesh.traverse( function ( child ) {
-                    if ( child instanceof THREE.Mesh ) {
+                this.mesh.traverse(function(child) {
+                    if (child instanceof THREE.Mesh) {
                         child.material = material;
                     }
                 });

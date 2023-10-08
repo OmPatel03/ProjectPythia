@@ -47,9 +47,9 @@ const KpBar = ({ kpValue }) => {
   return (
     <div style={barStyle}>
       <div style={textStyle}>0.0</div>
-      <div style={indicatorStyle}></div>
+      <div style={indicatorStyle}>0.5</div>
         {/* <div style={indicatorText}>{kpValue}</div> */}
-      <div style={topTextStyle}>1.0</div>
+      <div style={topTextStyle}>8.0</div>
     </div>
   );
 };
