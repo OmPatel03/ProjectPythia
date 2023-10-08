@@ -2,23 +2,27 @@ import * as THREE from 'three';
 import ThreeGlobe from 'three-globe';
 import Stats from 'three/examples/jsm/libs/stats.module';
 import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'; 
+import * as dat from 'dat.gui';
+import Globe from './Globe.jsx';
+import Satellite from './Satellite.jsx';
+import Simulation from './Simulation.jsx';
 
 export default class World {
-    constructor(scene, camera, renderer, tbControls, stats) {
+    constructor(scene, camera, renderer, tbControls, stats, gui) {
         this.scene = scene;
         this.camera = camera;
         this.renderer = renderer;
         this.tbControls = tbControls;
         this.stats = stats;
+        this.currentDay = 0;
+        this.currentkP = 0;
+
         this.globe = null;
-        
-        // satellite info 
-        this.satellite = new THREE.Object3D();
+        this.satellite = null;
+
         this.r = 100;
         this.theta = 0;
         this.dTheta = 2 * Math.PI / 5000;
-        
     } 
 
     init() {
@@ -30,27 +34,6 @@ export default class World {
 
         this.stats = new Stats();
         document.body.appendChild(this.stats.dom);
-
-        // Gen random data
-        const N = 5;
-        const gData = [...Array(N).keys()].map(() => ({
-        lat: (Math.random() - 0.5) * 180,
-        lng: (Math.random() - 0.5) * 360,
-        maxR: Math.random() * 20 + 3,
-        propagationSpeed: (Math.random() - 0.5) * 20 + 1,
-        repeatPeriod: Math.random() * 2000 + 200
-        }));
-
-        const colorInterpolator = t => `rgba(255,100,50,${1-t})`;
-
-        const Globe = new ThreeGlobe()
-        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
-        .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
-        .ringsData(gData)
-        .ringColor(() => colorInterpolator)
-        .ringMaxRadius('maxR')
-        .ringPropagationSpeed('propagationSpeed')
-        .ringRepeatPeriod('repeatPeriod');
         
         window.addEventListener('resize', () => {
             this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -58,8 +41,6 @@ export default class World {
             this.renderer.setSize(window.innerWidth, window.innerHeight);
         }
         , false);
-
-        this.globe = Globe;
 
         // Setup scene
         this.scene = new THREE.Scene();
@@ -78,7 +59,7 @@ export default class World {
         this.tbControls.rotateSpeed = 5;
         this.tbControls.zoomSpeed = 0.8;
 
-        this.scene.add(this.globe);
+
         this.scene.add(new THREE.AmbientLight(0xcccccc, Math.PI));
         this.scene.add(new THREE.DirectionalLight(0xffffff, 0.6 * Math.PI));
 
@@ -95,43 +76,37 @@ export default class World {
         );
         
         this.scene.background = environmentMapTexture;
-       
-        const objLoader = new OBJLoader()
-        objLoader.load(
-            'assets/triana-concept.obj',
-            (object) => {
-                this.satellite = object;
-                this.satellite.scale.set(0.01, 0.01, 0.01)
-                this.satellite.position.set(80 , 80  ,80);
-                let material = new THREE.MeshLambertMaterial({color: 0x777777});
-                this.satellite.traverse( function ( child ) {
-                    if ( child instanceof THREE.Mesh ) {
-                        child.material = material;
-                    }
-                });
-                this.scene.add(this.satellite)
-            },
-            (xhr) => {
-                console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
-            },
-            (error) => {
-                console.log(error)
-            }
-        )
 
+        // Globe 
+        this.globe = new Globe(this.scene);
 
+        // Satellite
+        this.satellite = new Satellite(this.scene);
 
-
+        // Simulation
+        this.simulation = new Simulation(this.globe);
+        
+        this.gui = new dat.GUI();
+        this.gui.add(this, 'currentDay', 0, 99).step(1).listen();
     }
-    
 
     animate() {
         this.stats.update();
         this.renderer.render(this.scene, this.camera);
-        this.tbControls.update();
+
+        // move satellite
         this.theta += this.dTheta;
-        this.satellite.position.x = this.r * Math.cos(this.theta);
-        this.satellite.position.z = this.r * Math.sin(this.theta);
+        this.satellite.mesh.position.x = this.r * Math.cos(this.theta);
+        this.satellite.mesh.position.z = this.r * Math.sin(this.theta);
+        
+        this.tbControls.update();
+
+        // update simulation
+        if (this.simulation.kP != {}) {  
+            // console.log(this.simulation.kP[this.currentDay])
+            this.simulation.update(this.currentDay);
+        }
+
         
         window.requestAnimationFrame(this.animate.bind(this));
     }
