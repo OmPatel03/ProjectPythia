@@ -1,13 +1,30 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PROJECTMAGGIE</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+<head>
+  <style>
+    body { margin: 0; }
+
+    #time-log {
+      position: absolute;
+      font-size: 12px;
+      font-family: sans-serif;
+      padding: 5px;
+      border-radius: 3px;
+      background-color: rgba(200, 200, 200, 0.1);
+      color: lavender;
+      bottom: 10px;
+      right: 10px;
+    }
+  </style>
+
+  <script src="//unpkg.com/satellite.js/dist/satellite.min.js"></script>
+
+  <script src="//unpkg.com/three"></script>
+  <script src="//unpkg.com/three-globe"></script>
+<!--  <script src="../../dist/three-globe.js"></script>-->
+</head>
+
+<body>
+  <div id="globeViz"></div>
+  <div id="time-log"></div>
+  <script type="importmap">{ "imports": { "three": "https://unpkg.com/three/build/three.module.js" }}</script>
+  <script src="src/Globe.jsx" type="module"></script>
+</body>
