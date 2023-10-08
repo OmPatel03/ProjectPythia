@@ -1,4 +1,3 @@
-# PROJECTPythia
 # Kp Index Prediction from DSCOVR Spectral Data
 
 ## Table of Contents
@@ -27,4 +26,53 @@ We employ a machine learning approach, specifically a Convolutional Neural Netwo
 
 - **Data Collection and Preprocessing**: We gather spectral data from the DSCOVR satellite, including the magnetic field vector and spectral data. The data is preprocessed to normalize and handle missing values, making it suitable for model training.
 
-- **2D CNN Model**: We utilize a 2D CNN to process spatial
+- **2D CNN Model**: We utilize a 2D CNN to process spatial data, such as the magnetic field vector. The model consists of convolutional layers, max-pooling layers, and dense layers to learn patterns and predict the Kp index.
+
+- **1D CNN Model**: For sequential data, such as spectral data, we employ a 1D CNN. This model also includes convolutional and dense layers optimized for sequential data processing.
+
+- **RNN Model**: To capture temporal dependencies within the data, we introduce an RNN model. The RNN architecture comprises LSTM layers and dense layers for Kp index regression.
+
+### Training and Evaluation
+
+- The 2D CNN is trained for a limited number of epochs due to computational constraints.
+
+- The 1D CNN undergoes more extensive training, although still constrained by resources.
+
+- The RNN model is trained with a single epoch to balance computational costs and model performance.
+
+- We use loss and mean absolute error (MAE) as performance metrics, aiming for validation MAE values less than or equal to 1.
+
+---
+
+## Getting Started
+
+To get started with our project, follow these steps:
+
+1. Clone this repository to your local machine.
+2. Install the required libraries and dependencies listed in the `requirements.txt` file.
+3. Download the DSCOVR spectral data and preprocess it according to the provided instructions.
+
+---
+
+## Usage
+
+- Use the trained models to predict the Kp index from your own DSCOVR spectral data.
+- Experiment with different hyperparameters and training durations to fine-tune model performance.
+- Explore potential enhancements, such as using external datasets to improve data quality and incorporating Transformer architectures for advanced predictions.
+
+### Jupyter Notebook and Model Files
+
+- Refer to the Jupyter notebook `Pythia.ipynb` for a detailed walkthrough of the project.
+- Find the trained model files in the `Model/` folder for direct usage in your applications.
+
+---
+
+## Contributing
+
+We welcome contributions to this project. Feel free to open issues, submit pull requests, or provide feedback to help us improve our Kp index prediction solution.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
