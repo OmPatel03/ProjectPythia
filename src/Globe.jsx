@@ -13,13 +13,22 @@ export default class Globe {
 
 	update(kP) {
 		// this.gData = data;
+		// We want the visuals to scale with the kP value (0-1)
 		const N = 1 + Math.trunc(kP*100/3);
-		const gData = [...Array(N).keys()].map(() => ({
+		const gData_ = [...Array(N).keys()].map(() => ({
 			lat: (Math.random() - 0.5) * 180,
 			lng: (Math.random() - 0.5) * 360,
 			maxR: Math.random() * 20 + 3,
 			propagationSpeed: (Math.random() - 0.5) * 20 + 1,
 			repeatPeriod: Math.random() * 2000 + 200
+		}));
+
+		const gData = [...Array(N).keys()].map(() => ({
+			lat: (Math.random() - 0.5) * 180,
+			lng: (Math.random() - 0.5) * 360,
+			maxR: kP * 20 + 3,
+			propagationSpeed: (kP - 0.5) * 20 + 1,
+			repeatPeriod: kP * 2000 + 200
 		}));
 		
 		const colorInterpolator = t => `rgba(255,100,50,${1-t})`;

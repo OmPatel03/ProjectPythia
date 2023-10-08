@@ -16,7 +16,7 @@ export default class Simulation {
         this.globe = globe;
         this.prevDay = 0;
 
-        for (let day = 0; day < 100; day++) {
+        for (let day = 0; day < 12000; day++) {
             this.kP[day] = Math.random();
         }
 

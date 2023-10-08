@@ -87,7 +87,7 @@ export default class World {
         this.simulation = new Simulation(this.globe);
         
         this.gui = new dat.GUI();
-        this.gui.add(this, 'currentDay', 0, 99).step(1).listen();
+        this.gui.add(this, 'currentDay', 0, 12000 - 1).step(1).listen();
     }
 
     animate() {
