@@ -3,7 +3,6 @@
 ## Table of Contents
 - [Problem Description](#problem-description)
 - [Machine Learning Solution](#machine-learning-solution)
-- [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
@@ -56,12 +55,13 @@ We employ a machine learning approach, specifically a Convolutional Neural Netwo
 - Refer to the Jupyter notebook `Pythia.ipynb` for a detailed walkthrough of the project.
 - Find the trained model files in the `Model/` folder for direct usage in your applications.
 
----
-
 ### Scientific Paper
 
-For a more detailed and comprehensive overview of our project, please refer to the scientific paper available in the "Project_Pythia.pdf" document.
+- For a more detailed and comprehensive overview of our project, please refer to the scientific paper available in the [`Project_Pythia.pdf`](https://github.com/OmPatel03/ProjectPythia/blob/main/Project_Pythia.pdf) document.
 
+### Website
+- To observe the model's predictions, we have a website made with an interactive globe component found here [https://recondit.github.io/SpaceApps/](https://recondit.github.io/SpaceApps/). 
+- (Sadly the satellite model is not visible on the GitHub pages website however, one can follow the steps below to compile the website.) 
 ---
 
 ## Contributing
