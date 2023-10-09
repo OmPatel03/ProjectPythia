@@ -2,6 +2,7 @@
 
 ## Table of Contents
 - [Problem Description](#problem-description)
+- [Project Name Pythia](#project-name-pythia)
 - [Machine Learning Solution](#machine-learning-solution)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -14,6 +15,16 @@
 Space weather is a critical consideration for many technological systems, including satellite communications, power grids, and navigation systems. One key parameter in space weather monitoring is the Kp index, which measures the magnitude of geomagnetic solar storms. Accurate prediction of the Kp index is crucial for space weather forecasting and monitoring.
 
 The Deep Space Climate Observatory (DSCOVR) satellite provides valuable data for predicting the Kp index. However, the spectral data collected by DSCOVR may suffer from anomalies due to functional and electrical failures, making prediction challenging. Our project addresses this problem by developing a machine learning solution to predict the Kp index accurately despite potential data faults.
+
+---
+
+## Project Name Pythia
+
+The name "Pythia" was chosen for our project with a specific inspiration in mind. The original challenge that led to the creation of this project was titled "Develop the Oracle of DSCOVR." In ancient Greek mythology, the Oracle of Delphi was known as "Pythia." Pythia was a high priestess of the Temple of Apollo, where Apollo was revered as the sun god among other attributes.
+
+The choice of the name "Pythia" reflects our project's aim to harness the power of data and machine learning to provide valuable insights, much like the oracle of ancient times. We strive to predict and shed light on solar activities, including the Kp index, using data from the DSCOVR satellite, with the same sense of guidance and foresight that Pythia offered in the realm of ancient divination.
+
+"Pythia" symbolizes our project's dedication to leveraging technology to uncover the mysteries of space weather and solar phenomena, much as the ancient Oracle of Delphi once did in a different context.
 
 ---
 
