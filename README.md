@@ -61,7 +61,36 @@ We employ a machine learning approach, specifically a Convolutional Neural Netwo
 
 ### Website
 - To observe the model's predictions, we have a website made with an interactive globe component found here [https://recondit.github.io/SpaceApps/](https://recondit.github.io/SpaceApps/). 
-- (Sadly the satellite model is not visible on the GitHub pages website however, one can follow the steps below to compile the website.) 
+- (Sadly the satellite model is not visible on the GitHub pages website however, one can follow the steps below to compile the website.)
+
+#### Compiling the Website Locally
+
+To compile and run the project website locally, follow these steps:
+
+1. Ensure you have Node.js and npm (Node Package Manager) installed on your system. You can download them from [Node.js website](https://nodejs.org/).
+
+2. Clone this repository to your local machine if you haven't already:
+
+   ```sh
+   git clone <repository-url>
+   
+3. Open a terminal or command prompt and navigate to the project directory:
+   ```sh
+   cd <project-directory>
+
+4. Install the project dependencies using npm:
+   ```sh
+   npm install
+
+5. After the installation is complete, you can start the development server to compile and view the website locally:
+   ```sh
+   npm start
+
+6. Open your web browser and go to http://localhost:3000 to access the locally compiled website.
+
+7. You can now make changes to the website source code, and the development server will automatically update the site with your changes.
+
+8. To stop the development server, you can press Ctrl + C in the terminal.
 ---
 
 ## Contributing
